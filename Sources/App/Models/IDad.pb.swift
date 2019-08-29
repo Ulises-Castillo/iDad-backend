@@ -20,6 +20,18 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// TODO(ulysses): Describe this message.
+struct IDadList {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var list: [IDad] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
 struct IDad {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -30,6 +42,8 @@ struct IDad {
   var imageNames: [String] = []
 
   var videoCodes: [String] = []
+
+  var quotes: [String] = []
 
   var books: [Book] = []
 
@@ -60,15 +74,45 @@ struct Book {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
+extension IDadList: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "IDadList"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "list"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeRepeatedMessageField(value: &self.list)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.list.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: IDadList, rhs: IDadList) -> Bool {
+    if lhs.list != rhs.list {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension IDad: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "IDad"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "imageNames"),
     3: .same(proto: "videoCodes"),
-    4: .same(proto: "books"),
-    5: .same(proto: "description"),
-    6: .same(proto: "summary"),
+    4: .same(proto: "quotes"),
+    5: .same(proto: "books"),
+    6: .same(proto: "description"),
+    7: .same(proto: "summary"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -77,9 +121,10 @@ extension IDad: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
       case 1: try decoder.decodeSingularStringField(value: &self.name)
       case 2: try decoder.decodeRepeatedStringField(value: &self.imageNames)
       case 3: try decoder.decodeRepeatedStringField(value: &self.videoCodes)
-      case 4: try decoder.decodeRepeatedMessageField(value: &self.books)
-      case 5: try decoder.decodeSingularStringField(value: &self.description_p)
-      case 6: try decoder.decodeSingularStringField(value: &self.summary)
+      case 4: try decoder.decodeRepeatedStringField(value: &self.quotes)
+      case 5: try decoder.decodeRepeatedMessageField(value: &self.books)
+      case 6: try decoder.decodeSingularStringField(value: &self.description_p)
+      case 7: try decoder.decodeSingularStringField(value: &self.summary)
       default: break
       }
     }
@@ -95,14 +140,17 @@ extension IDad: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
     if !self.videoCodes.isEmpty {
       try visitor.visitRepeatedStringField(value: self.videoCodes, fieldNumber: 3)
     }
+    if !self.quotes.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.quotes, fieldNumber: 4)
+    }
     if !self.books.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.books, fieldNumber: 4)
+      try visitor.visitRepeatedMessageField(value: self.books, fieldNumber: 5)
     }
     if !self.description_p.isEmpty {
-      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 5)
+      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 6)
     }
     if !self.summary.isEmpty {
-      try visitor.visitSingularStringField(value: self.summary, fieldNumber: 6)
+      try visitor.visitSingularStringField(value: self.summary, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -111,6 +159,7 @@ extension IDad: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
     if lhs.name != rhs.name {return false}
     if lhs.imageNames != rhs.imageNames {return false}
     if lhs.videoCodes != rhs.videoCodes {return false}
+    if lhs.quotes != rhs.quotes {return false}
     if lhs.books != rhs.books {return false}
     if lhs.description_p != rhs.description_p {return false}
     if lhs.summary != rhs.summary {return false}
