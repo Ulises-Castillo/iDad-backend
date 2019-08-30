@@ -72,21 +72,20 @@ final class IDadController: RouteCollection {
         
         
         var spj = IDad()
-        spj.name = "Dan Peña"
-        spj.imageNames = ["dsp", "dspQuote"]
-        spj.videoCodes = ["YwmO_aZRmqE", "ZYk18h1o5T0", "_jtRTa826qk", "5Qt64XLtMJE"]
-        spj.quotes = ["Tough times don’t last – tough people do!",
-                      "Don’t waste time on things you can’t change!",
-                      "Show me your friends and I’ll show you your future.",
-                      "Once you become fearless, life becomes limitless.",
-                      "Man's greatest burden is unfufilled potential."]
+        spj.name = "Steve Jobs"
+        spj.imageNames = ["spj", "spj3"]
+        spj.videoCodes = ["UF8uR6Z6KLc", "ppXQMsj6Yfo", "gFE-Tdz24hM"]
+        spj.quotes = ["The people who are crazy enough to think they can change the world are the ones who do.",
+                      "Have the courage to follow your heart and intuition. They somehow know what you truly want to become.",
+                      "I'm convinced that about half of what separates successful entrepreneurs from the non-successful ones is pure perseverance.",
+                      "My favorite things in life don't cost any money. It's really clear that the most precious resource we all have is time."]
         
         var book4 = Book()
-        book4.title = "Your First 100 Million"
-        book4.imageName = "first100"
-        book4.url = "https://archive.org/details/DanS.PeaYourFirst100Million2ndEd/page/n13"
+        book4.title = "Steve Jobs, By Walter Issacson"
+        book4.imageName = "issacson"
+        book4.url = "https://www.amazon.com/Steve-Jobs-Walter-Isaacson/dp/1451648537"
         
-        dsp.books = [book4]
+        spj.books = [book4]
         
         
         var iDads = IDadList()
