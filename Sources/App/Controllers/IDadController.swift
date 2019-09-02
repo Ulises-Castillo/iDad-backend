@@ -30,7 +30,8 @@ final class IDadController: RouteCollection {
     func mockData() -> IDadList {
         var jbp = IDad()
         jbp.name = "Jordan Peterson"
-        jbp.imageNames = ["jbp", "jbp3"]
+        jbp.id = "jbp"
+        jbp.imageNames = ["jbp.jpg", "jbp3.jpg"]
         jbp.videoCodes = ["wLvd_ZbX1w0","-5RCmu-HuTg", "5ER1LOarlgg", "s1tS7ylRVHw", "4OmC6LyO5QI"]
         jbp.quotes = ["The meaning in life is found in the adoption of resposibiilty.",
                       "Imagine your life in 10 years if instead of avoiding the things you know you should do you actually did them every single day–that's powerful.",
@@ -41,13 +42,15 @@ final class IDadController: RouteCollection {
                       "To suffer terribly and to know yourself as the cause: that is Hell."]
         
         var book = Book()
+        book.iDadID = "jbp"
         book.title = "12 Rules For Life"
-        book.imageName = "12rules"
+        book.imageName = "12rules.jpg"
         book.url = "https://www.amazon.com/12-Rules-Life-Antidote-Chaos/dp/0345816021"
         
         var book2 = Book()
+        book2.iDadID = "jbp"
         book2.title = "Maps of Meaning"
-        book2.imageName = "mom"
+        book2.imageName = "mom.jpg"
         book2.url = "https://www.amazon.com/Maps-Meaning-Architecture-Jordan-Peterson/dp/0415922216/ref=sr_1_3?keywords=maps+of+meaning&qid=1566760997&s=books&sr=1-3"
         
         jbp.books = [book, book2]
@@ -55,7 +58,8 @@ final class IDadController: RouteCollection {
         
         var dsp = IDad()
         dsp.name = "Dan Peña"
-        dsp.imageNames = ["dsp", "dspQuote"]
+        dsp.id = "dsp"
+        dsp.imageNames = ["dsp.jpeg", "dspQuote.png"]
         dsp.videoCodes = ["YwmO_aZRmqE", "ZYk18h1o5T0", "_jtRTa826qk", "5Qt64XLtMJE"]
         dsp.quotes = ["Tough times don’t last – tough people do!",
                       "Don’t waste time on things you can’t change!",
@@ -64,8 +68,9 @@ final class IDadController: RouteCollection {
                       "Man's greatest burden is unfufilled potential."]
         
         var book3 = Book()
+        book3.iDadID = "dsp"
         book3.title = "Your First 100 Million"
-        book3.imageName = "first100"
+        book3.imageName = "first100.jpeg"
         book3.url = "https://archive.org/details/DanS.PeaYourFirst100Million2ndEd/page/n13"
         
         dsp.books = [book3]
@@ -73,7 +78,8 @@ final class IDadController: RouteCollection {
         
         var spj = IDad()
         spj.name = "Steve Jobs"
-        spj.imageNames = ["spj", "spj3"]
+        spj.id = "spj"
+        spj.imageNames = ["spj.png", "spj3.jpg"]
         spj.videoCodes = ["UF8uR6Z6KLc", "ppXQMsj6Yfo", "gFE-Tdz24hM"]
         spj.quotes = ["The people who are crazy enough to think they can change the world are the ones who do.",
                       "Have the courage to follow your heart and intuition. They somehow know what you truly want to become.",
@@ -81,8 +87,9 @@ final class IDadController: RouteCollection {
                       "My favorite things in life don't cost any money. It's really clear that the most precious resource we all have is time."]
         
         var book4 = Book()
+        book4.iDadID = "spj"
         book4.title = "Steve Jobs, By Walter Issacson"
-        book4.imageName = "issacson"
+        book4.imageName = "issacson.jpg"
         book4.url = "https://www.amazon.com/Steve-Jobs-Walter-Isaacson/dp/1451648537"
         
         spj.books = [book4]
